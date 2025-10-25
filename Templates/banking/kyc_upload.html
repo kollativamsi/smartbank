@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KYC Upload</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="kyc-container">
+    <h2>KYC Upload</h2>
+    
+    {% if success %}
+    <div class="success-message">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="9" stroke="#28a745" stroke-width="2" fill="none"/>
+            <path d="M6 10L9 13L14 7" stroke="#28a745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Your KYC has been submitted successfully!</p>
+    </div>
+    {% endif %}
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <!-- Aadhaar Number -->
+        <label for="id_aadhaar_number">Aadhaar Number:</label>
+        <input type="text" id="id_aadhaar_number" name="aadhaar_number" maxlength="12" required placeholder="Enter 12-digit Aadhaar number" pattern="[0-9]{12}"><br><br>
+        
+        <!-- PAN Number -->
+        <label for="id_pan_number">PAN Number:</label>
+        <input type="text" id="id_pan_number" name="pan_number" maxlength="10" required placeholder="Enter 10-character PAN number" style="text-transform: uppercase;" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"><br><br>
+        
+        <!-- Address Proof -->
+        <label for="id_address_proof">Address Proof:</label>
+        <input type="file" id="id_address_proof" name="address_proof" required accept=".pdf,.jpg,.jpeg,.png">
+        <small style="display:block; font-size:12px; color:#888; margin-top:6px; margin-bottom:16px;">Upload utility bill, bank statement, or rental agreement</small>
+        
+        <!-- ID Proof -->
+        <label for="id_id_proof">ID Proof:</label>
+        <input type="file" id="id_id_proof" name="id_proof" required accept=".pdf,.jpg,.jpeg,.png">
+        <small style="display:block; font-size:12px; color:#888; margin-top:6px; margin-bottom:16px;">Upload Aadhaar card, PAN card, or Passport</small>
+        
+        <!-- Selfie -->
+        <label for="id_selfie">Selfie:</label>
+        <input type="file" id="id_selfie" name="selfie" required accept=".jpg,.jpeg,.png">
+        <small style="display:block; font-size:12px; color:#888; margin-top:6px; margin-bottom:16px;">Upload a clear selfie for verification</small>
+        
+        <button type="submit">Submit KYC</button>
+    </form>
+</div>
+
+</body>
+</html>

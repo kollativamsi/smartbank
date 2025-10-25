@@ -1,0 +1,20 @@
+use vamsi64;
+create table student(Stid int, Name varchar(20), Age Int , primary key(Stid));
+insert into student(Stid, Name, Age)values(1,'Raju',23);
+/*Insert the values only*/
+insert into student values(2,'kiran',24);
+/*insert the multiple values at a time*/
+insert into student values(3,'sai',25),(4,'abc',28);
+insert into student values(5,'cdf',24);
+/*select is used to retrive the data from the table*/
+/* * is used to specified all the colimns */
+select distinct age from student; /*distinct is used to retrive only unique values from the database*/
+select age from student where Stid=1;/* where is used to apply some conditions purpose */
+select * from student where age>20;
+select * from student limit 2;/* by using the limit you decide how many rows will be displayed by giving a specific value beside the limit*/
+select * from student where Stid in (1,2,3,10);/* Here we are checking if the Stid are present in the above table then display those rows otherwise they didn't display*/
+select age+4 from student;/*we are able to perform substraction, division, multiplication also*/
+alter table student rename to students;/* by using this command we are able to rename the table name*/
+show tables;
+delete from students where age>27;/* by using delete we are able to delete a specific item */
+select * from students;
