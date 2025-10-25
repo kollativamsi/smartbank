@@ -18,4 +18,13 @@ Once users complete KYC, they can proceed to **account creation**, where they ca
   * Error handling for missing or invalid inputs
   * Responsive frontend with interactive feedback
 
+**Step-by-Step User Onboarding & KYC Flow**
+
 This setup ensures a smooth, secure, and user-friendly flow from registration to KYC verification and final account activation.
+
+
+After successfully registering on the platform, users are immediately redirected to the KYC upload page. Here, they must fill in their details and upload their required documents. Once submitted, this data is securely stored both in the Django admin interface and in the underlying MySQL database.
+
+For users wishing to check their KYC verification status, the system provides a dedicated KYC status page. To access their status, users simply need to log in; the page then displays whether their KYC has been "approved," "rejected," or is still "pending." All registered user information, as well as KYC submissions, are systematically maintained in the database for easy access and management.
+
+This workflow ensures a smooth and secure registration process, seamless KYC document submission, and transparent status tracking for every user.
